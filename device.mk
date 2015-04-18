@@ -19,6 +19,17 @@
 #
 # Everything in this directory will become public
 
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+LOCAL_KERNEL := device/moto/shamu-kernel/zImage-dtb
+else
+LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+
+PRODUCT_COPY_FILES := \
+    $(LOCAL_KERNEL):kernel
+
 PRODUCT_COPY_FILES += \
     device/moto/shamu/init.shamu.rc:root/init.shamu.rc \
     device/moto/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
@@ -167,7 +178,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libqomx_core \
-    libmm-qcamera \
     libmmcamera_interface \
     libmmjpeg_interface \
     camera.msm8084 \
