@@ -2,10 +2,10 @@
 $(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 
 # Inherit common product files.
-$(call inherit-product, vendor/felix/products/common.mk)
+$(call inherit-product, vendor/solo/products/common.mk)
 
 # Setup device specific product configuration.
-PRODUCT_NAME := felix_shamu
+PRODUCT_NAME := solo_shamu
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := shamu
 PRODUCT_MODEL := Nexus 6
@@ -18,4 +18,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="shamu-user 5.1 LMY47I 1767468 release-keys"
 
 # Inherit media effect blobs
--include vendor/felix/products/common_media_effects.mk
+-include vendor/solo/products/common_media_effects.mk
